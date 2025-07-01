@@ -61,7 +61,7 @@
 
 ![falstad.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/falstad.png)
 
-Link do circuito [aqui](https://tinyurl.com/2bskvgy4)
+Link do circuito [aqui](https://tinyurl.com/2c85nkbw)
 
 ## Eagle:
 ---
