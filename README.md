@@ -94,7 +94,24 @@ Link do vídeo: [link](########)
 ## Introdução:
 O circuito típico consiste em quatro botões coloridos e quatro LEDs correspondentes (vermelho, verde, azul e amarelo). Cada botão está ligado a uma entrada digital do Arduino, enquanto os LEDs são conectados às saídas digitais. Ao iniciar o jogo, o Arduino acende os LEDs em uma sequência aleatória. O jogador deve repetir essa sequência pressionando os botões na ordem correta. Se errar, o jogo reinicia.
 
+## Componentes/Valores:
+---
+| Quantidades   | Componentes   | Preço |
+| ------------- |:-------------:| -----:|
+|               |               |       |
+|               |               |       |
+|               |               |       |
+|               |               |       |
+|               |               |       |
+|               |               |       |
+|               |               |       |
 
+## Circuito:
+
+![circuito-esquema.png]
+
+
+![circuito-foto.png]
 ## Software:
 ---
 ```c++
