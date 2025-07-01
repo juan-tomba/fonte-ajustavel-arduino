@@ -76,10 +76,10 @@ Link do circuito [aqui](https://tinyurl.com/2c85nkbw)
 
 ## Cálculos:
 ---
-* calculo1
-
-* calculo2
-
+![calc1.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/20250701_091643.jpg)
+![calc2.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/calc2.jpg)
+![calc3.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/calc3.jpg)
+![calc4.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/calc4.jpg)
 
 ## Vídeo no YouTube:
 ---
