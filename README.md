@@ -98,13 +98,13 @@ O circuito típico consiste em quatro botões coloridos e quatro LEDs correspond
 ---
 | Quantidades   | Componentes   | Preço |
 | ------------- |:-------------:| -----:|
-|               |               |       |
-|               |               |       |
-|               |               |       |
-|               |               |       |
-|               |               |       |
-|               |               |       |
-|               |               |       |
+|  16           |  Jumper macho-macho   | R$11,20     |
+|  4            |  Leds (variados)      | R$2,00      |
+|  1            |  Arduíno Uno          | R$109,90    |
+|  4            |  Botão push           | R$0,80      |
+|  10           |  Resistor 150Ω        | R$0,70      |
+|               |  Total                | R$124,60    |
+
 
 ## Circuito:
 
