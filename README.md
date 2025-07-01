@@ -18,10 +18,44 @@
 | 10     | Jumper macho x macho          | R$7,00  |
 |        | Total                         | R$35,40 |
 
-## Digressão sobre os componentes:
+## Descrição dos Componentes
 
+### Transformador
+* Este aparelho é responsável por reduzir a tensão total oriunda da tomada (neste caso, 127V) para uma tensão de trabalho mais baixa e segura.
+* Neste circuito, a tensão secundária produzida é de aproximadamente 18.2V AC.
+* Apesar de reduzir a tensão, a corrente continua sendo alternada (AC), assim como na entrada.
 
+### Ponte de Diodos
+* Um conjunto de quatro diodos, aqui encapsulados em um único componente.
+* Cada diodo funciona como uma "válvula de retenção" ou uma "rua de mão única" para a eletricidade, forçando a corrente a fluir em apenas uma direção.
+* A ponte de diodos converte a corrente alternada (AC) em corrente contínua (DC), garantindo que o fluxo de eletricidade tenha sempre o mesmo sentido.
+* No entanto, a corrente resultante ainda não é constante, mas sim uma série de pulsos, com picos e vales de tensão.
 
+### Capacitor
+* Funciona como um "reservatório" de energia para suavizar os pulsos da corrente contínua.
+* O capacitor se carrega durante os picos de tensão e descarrega durante os vales, preenchendo as "lacunas" e estabilizando a linha de tensão.
+* A pequena variação de tensão que ainda resta após a filtragem é chamada de "ripple" (ondulação).
+
+### LED
+* Componente opcional que serve como um indicador visual, acendendo para demonstrar que o circuito está ligado e funcionando.
+
+### Resistores
+* Componentes que oferecem uma resistência à passagem da corrente elétrica.
+* Sua principal função é limitar e controlar a corrente que flui para outros componentes, protegendo-os de sobrecargas e garantindo que operem sob as condições corretas de tensão e corrente.
+
+### Diodo Zener
+* Um tipo especial de diodo que, além de permitir o fluxo em um sentido, também permite o fluxo no sentido inverso se a tensão exceder seu valor nominal.
+* Neste circuito, ele está travado em seu valor nominal de 13V. Sua função é criar um ponto de tensão de referência perfeitamente estável, garantindo que o circuito de controle sempre tenha uma base de 13V para trabalhar, independentemente de pequenas variações na fonte.
+
+### Potenciômetro
+* É um resistor variável que permite o ajuste manual da tensão de saída da fonte.
+* Junto com o resistor R3, ele forma um divisor de tensão que "fatia" a referência estável de 13V do Zener.
+* Ao girar o botão, o usuário seleciona uma "fatia" dessa tensão (entre ~4V e 13V) e a envia como um sinal de comando para o transistor.
+
+### Transistor
+* Funciona como uma válvula eletrônica de alta precisão, sendo o componente que efetivamente ajusta a tensão de saída da fonte.
+* Ele recebe a tensão de comando do potenciômetro em seu pino **Base** e regula o fluxo principal de energia (que entra pelo **Coletor**) para que a tensão em sua saída (**Emissor**) seja sempre igual à tensão da Base, menos uma pequena queda fixa de ~0,7V.
+* Sua grande vantagem é o **ganho de corrente**: ele permite que o sinal de controle fraco do potenciômetro gerencie a corrente forte necessária para alimentar a carga, agindo como um amplificador de força.
 ## Circuito no Falstad:
 ---
 
