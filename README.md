@@ -1,7 +1,7 @@
 # fonte-de-tensao
 
 
-# Componentes/Valores:
+## Componentes/Valores:
 ---
 | Quantidades   | Componentes   | Preço |
 | ------------- |:-------------:| -----:|
@@ -18,31 +18,36 @@
 | 10     | Jumper macho x macho          | R$7,00  |
 |        | Total                         | R$35,40 |
 
+## Digressão sobre os componentes:
 
 
 
-# Circuito no Falstad:
+## Circuito no Falstad:
 ---
 
 ![falstad.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/falstad.png)
 
 Link do circuito [aqui](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEB2WZIICxgEwGZMA2QgDmRMJEwE4QlM86BTAWjDACgBnEHHTECUgg8CHIOGSQAMwCGAGy5MOAN179whYXwF4cUiFvBCopmAg4B3dbv28SJEXchX7jvcNHiPUDgRAAJgCWAPYBTAC2YUzypmDQDvBJyZB4rI4wkDgUvFRwvgF02RIghAiUJuLB0VHh8hyFZZQ+Yu524mAAcphwmA2l5U7CrSUd3b39Iz5No4FMcgCu8gAuHAAqecImU85UUNBgeHgUiSTlyFp4yEgs5oQ4yNTU7EdPOM+0bNBihKKiYMhILgENQEKxkPsntQOGB7ihSCULo4cIMqvNZEtlix5ExChApJlOAAneHIwZIoamTCAlzWHSjDSwySuLyUnqeZyuGYmQjIcQmWkDZp2UhtZnWXn84SikouADGpQcJRlPkksCB6mgr0g1EwQj4qSy+zgnGsJD0lKEHOZAHNFWL7SIxGZXNRigDKG7kZAMjDkAIvbwfSBA-xhBAEPBIaCUikIAAlJhcIJcZayAB2cuUJNDPRDxTwkAE2n0gsDhYDBc51nLdgotnFIcwAnp1AuNl8yxD7dbbo74ZAbBI0EIuvI1DIoLw1AwSBgvJIOFIcCuWWnE-A+XCixWrr7+kcbxDlBcOf3eaPqvA+j33jstcbR5MR+oJ9c5rvW0IDd8Nfd7cDMBm18fwAC8mHTJgiTYPAWHEcNoGQICvBIMAvXQOAcHBUwOkYThQMEb9LSIj1cnAyDoMOOD33yEx61ld8iOfPsBVdd1gPooDi0YgRSM44DT0IgQ6JIgTNzgFlnRMdkGIAD0EQYETIcQkL2Q4QHjTh5NHXiZxQGhwGoRheMYABhWQAAdZDlIJlhCIkOHkttvGOTd3hEbA1MYeMLKJIJMyCKz6ic-x9HECckH0ehBBAAAFEJlggmyABeIiYZYiRCRzBELXgwEcEhQXUCBeOEAARAAdLgAC0IIoqqYIANWy65aCORxkGuDySvAbycGyt1PGnEM8GaTBxBMjS8AGp51CQdBUWKSa1iJDNk1TezXApHwrUpQVtpFJVVS5JUTApVjrHOrZaOZeSsAhAhDH8AgBEm+L00Sqrwi+0IAiy+SHmlXRIAhXkvJAUyAAtZBUZQAaIXhPNeRHXt6kAADEQg+pgvpx1MIK4ABj-68ghf06D1FAIWW1b0y4aR7IiWQ-qJKrcGQBqAWakJeFB4s8lm5xoHg3IHhEDgeYtIjhB6QW1SyebcgtaagA)
 
-# Projeto do Esquemático no Eagle:
+## Eagle:
 ---
-![Imagem eagle]
+
+### Esquemático:
+![schematic.png]
 
 
+### Protoboard
+![protoboard.png]
 
 
-# Cálculos:
+## Cálculos:
 ---
 * calculo1
 
 * calculo2
 
 
-# Vídeo no YouTube:
+## Vídeo no YouTube:
 ---
 Link do vídeo: [link](########)
 
@@ -52,11 +57,11 @@ Link do vídeo: [link](########)
 
 # Projeto-Arduino:
 
-# Introdução:
+## Introdução:
 O circuito típico consiste em quatro botões coloridos e quatro LEDs correspondentes (vermelho, verde, azul e amarelo). Cada botão está ligado a uma entrada digital do Arduino, enquanto os LEDs são conectados às saídas digitais. Ao iniciar o jogo, o Arduino acende os LEDs em uma sequência aleatória. O jogador deve repetir essa sequência pressionando os botões na ordem correta. Se errar, o jogo reinicia.
 
 
-# Software:
+## Software:
 ---
 ```c++
 int sequencia[32] = {};
@@ -154,7 +159,7 @@ void aguardarJogador()
 ```
 
 
-# Vídeo no YouTube:
+## Vídeo no YouTube:
 ---
 [link](link vídeo youtube)
 
