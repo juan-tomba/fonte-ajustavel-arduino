@@ -33,11 +33,11 @@ Link do circuito [aqui](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgj
 ---
 
 ### Esquemático:
-![schematic.png]
+![schematic.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/schematic.png)
 
 
 ### Protoboard
-![protoboard.png]
+![protoboard.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/protoboard.png)
 
 
 ## Cálculos:
