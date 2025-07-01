@@ -98,98 +98,157 @@ O circuito típico consiste em quatro botões coloridos e quatro LEDs correspond
 ## Software:
 ---
 ```c++
+// Array para armazenar a sequência de cores (representadas por números de 0 a 3).
+// O tamanho 32 define que o jogo pode ter no máximo 32 rodadas.
 int sequencia[32] = {};
-int botoes[4] = {8,9,10,11};
-int leds[4] = {2,3,4,5};
+
+// Array que mapeia os 4 botões para os pinos digitais do Arduino.
+// Botão 0 no pino 8, Botão 1 no pino 9, etc.
+int botoes[4] = {8, 9, 10, 11};
+
+// Array que mapeia os 4 LEDs para os pinos digitais do Arduino.
+// LED 0 no pino 2, LED 1 no pino 3, etc.
+int leds[4] = {2, 3, 4, 5};
+
+// Variável para contar em qual rodada o jogo está. Inicia em 0.
 int rodada = 0;
+
+// Variável para acompanhar qual passo da sequência o jogador precisa pressionar.
 int passo = 0;
+
+// Guarda o último botão que o jogador pressionou (0, 1, 2 ou 3).
 int botao_pressionado = 0;
+
+// "Flag" (bandeira) booleana que indica se o jogo terminou por um erro do jogador.
 bool gameover = false;
+
+// --- FUNÇÃO SETUP ---
+// É executada uma única vez quando o Arduino é ligado ou resetado.
 void setup() {
   
-  pinMode(2,OUTPUT);
-  pinMode(3,OUTPUT);
-  pinMode(4,OUTPUT);
-  pinMode(5,OUTPUT);
+  // Configura os pinos dos LEDs como SAÍDA (OUTPUT).
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
 
-  pinMode(8,INPUT_PULLUP);
-  pinMode(9,INPUT_PULLUP);
-  pinMode(10,INPUT_PULLUP);
-  pinMode(11,INPUT_PULLUP);
+  // Configura os pinos dos botões como ENTRADA (INPUT) com resistor de PULL-UP.
+  // INPUT_PULLUP ativa um resistor interno que mantém o pino em HIGH (nível alto).
+  // Quando o botão é pressionado (conectando o pino ao GND), a leitura será LOW (nível baixo).
+  // Isso evita a necessidade de resistores externos.
+  pinMode(8, INPUT_PULLUP);
+  pinMode(9, INPUT_PULLUP);
+  pinMode(10, INPUT_PULLUP);
+  pinMode(11, INPUT_PULLUP);
 
+  // Inicia a comunicação serial para debug (opcional, mas muito útil).
+  // Permite ver no Serial Monitor do PC o que está acontecendo, como os números sorteados.
   Serial.begin(9600);
 }
-void proximaRodada()
-{
+
+// --- FUNÇÃO PARA PREPARAR A PRÓXIMA RODADA ---
+void proximaRodada() {
+  // Sorteia um número aleatório entre 0 e 3.
   int sorteio = random(4);
+
+  // Armazena o número sorteado na sequência, na posição da rodada atual.
   sequencia[rodada] = sorteio;
+
+  // Incrementa o contador de rodada para a próxima vez.
   rodada++;
+
+  // Imprime o número sorteado no Serial Monitor para ajudar a depurar o código.
   Serial.print(sorteio);
 }
+
+// --- FUNÇÃO LOOP ---
+// É o coração do programa, fica se repetindo infinitamente.
 void loop() {
-
-
+  // 1. Adiciona um novo passo aleatório à sequência para a rodada atual.
   proximaRodada();
+  
+  // 2. Mostra a sequência de luzes completa para o jogador.
   reproduzirSequencia();
+
+  // 3. Espera o jogador tentar repetir a sequência.
+  //    Esta função também irá definir a flag 'gameover' como 'true' se o jogador errar.
   aguardarJogador();
-  if(gameover)
-  {
+
+  // 4. Verifica se o jogo terminou na última rodada.
+  if (gameover) {
+    // Se sim, reseta todas as variáveis para o estado inicial.
     passo = 0;
     rodada = 0;
-    sequencia[32] = {};
-    gameover = false;
+    
+    //Limpa o array de sequência
+    for (int i = 0; i < 32; i++){
+      sequencia[i] = 0;
+    } 
+    gameover = false; // Prepara para um novo jogo.
   }
+  
+  // 5. Espera 1 segundo (1000 milissegundos) antes de iniciar a próxima rodada.
   delay(1000);
 }
-void reproduzirSequencia()
-{ 
-  for(int i = 0; i<rodada; i++)
-  {
-    digitalWrite(leds[sequencia[i]],HIGH);
-    delay(500);
-    digitalWrite(leds[sequencia[i]],LOW);
-    delay(100);
-  }
 
+// --- FUNÇÃO PARA MOSTRAR A SEQUÊNCIA DE LEDS ---
+void reproduzirSequencia() { 
+  // Percorre a sequência até a rodada atual.
+  for (int i = 0; i < rodada; i++) {
+    // Acende o LED correspondente ao passo 'i' da sequência.
+    digitalWrite(leds[sequencia[i]], HIGH);
+    delay(500); // Mantém o LED aceso por meio segundo.
+    digitalWrite(leds[sequencia[i]], LOW); //Apaga o LED.
+    delay(100); // Pequena pausa antes de mostrar o próximo LED.
+  }
 }
-void aguardarJogador()
-{
-  for(int i = 0; i<rodada;i++)
-  { 
-    bool jogou = false;
-    while(!jogou){
-      for(int i = 0; i <=3; i++)
-      {
-        if(digitalRead(botoes[i]) == LOW)
-        {
-          botao_pressionado = i;
-          digitalWrite(leds[i], HIGH);
-          delay(300);
-          digitalWrite(leds[i],LOW);
+
+// --- FUNÇÃO PARA AGUARDAR E VALIDAR A JOGADA ---
+void aguardarJogador() {
+  // Percorre cada passo que o jogador deve acertar nesta rodada.
+  for (int i = 0; i < rodada; i++) { 
+    bool jogou = false; // Flag para controlar se o jogador já pressionou um botão.
+
+    // Este laço 'while' prende a execução aqui até que um botão seja pressionado.
+    while (!jogou) {
+      // Verifica cada um dos 4 botões.
+      for (int j = 0; j <= 3; j++) {
+        // Se a leitura do botão 'j' for LOW (pressionado)...
+        if (digitalRead(botoes[j]) == LOW) {
+          // ...guarda qual botão foi (0, 1, 2 ou 3).
+          botao_pressionado = j;
+          // Acende o LED correspondente para dar um feedback visual.
+          digitalWrite(leds[j], HIGH);
+          delay(300); // Mantém aceso por um instante (também ajuda a evitar 'debounce').
+          digitalWrite(leds[j], LOW);
+          // Avisa que o jogador já fez sua jogada para sair do laço 'while'.
           jogou = true;
         }
       }
     }
-    if(sequencia[passo] != botao_pressionado)
-    {
-      for(int i = 0;i<=3;i++)
-      {
-        digitalWrite(leds[i],HIGH);
-        delay(100);
-        digitalWrite(leds[i],LOW);
 
+    // Após o jogador pressionar um botão, compara com o valor esperado na sequência.
+    if (sequencia[passo] != botao_pressionado) {
+      // SE ERROU:
+      // Pisca todos os LEDs rapidamente para sinalizar 'Game Over'.
+      for (int k = 0; k <= 3; k++) {
+        digitalWrite(leds[k], HIGH);
+        delay(100);
+        digitalWrite(leds[k], LOW);
       }
-      gameover = true;
-      break;
+      gameover = true; // Define a flag de game over.
+      break;           // Interrompe o loop 'for', pois o jogo já acabou.
     }
     
-    passo+=1;
+    // SE ACERTOU:
+    // Incrementa o contador de passos para verificar o próximo passo da sequência.
+    passo += 1;
   }
- 
   
+  // Ao final da função (seja por acerto de todos os passos ou por game over),
+  // reseta o 'passo' para 0, preparando para a próxima checagem de jogada.
   passo = 0; 
 }
-
 ```
 
 
