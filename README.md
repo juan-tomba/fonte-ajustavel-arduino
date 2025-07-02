@@ -67,11 +67,11 @@ Link do circuito [aqui](https://tinyurl.com/272rv48x)
 ---
 
 ### Esquemático:
-![schematic.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/schematic2.png)
+![schematic.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/schematic3.png)
 
 
 ### Protoboard
-![protoboard.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/protoboard2.png)
+![protoboard.png](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/protoboard3.png)
 
 
 ## Cálculos:
