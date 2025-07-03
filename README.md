@@ -83,7 +83,7 @@ Link do circuito [aqui](https://tinyurl.com/272rv48x)
 
 ## Vídeo no YouTube:
 ---
-Link do vídeo: [link](########)
+Link do vídeo: [link](https://www.youtube.com/watch?v=7NewHWRttzg)
 
 
 
@@ -271,7 +271,7 @@ void aguardarJogador() {
 
 ## Vídeo no YouTube:
 ---
-[link](link vídeo youtube)
+[link](https://www.youtube.com/watch?v=Jz6tGamR_Pk)
 
 
 
