@@ -107,11 +107,13 @@ O circuito típico consiste em quatro botões coloridos e quatro LEDs correspond
 
 
 ## Circuito:
+Link do circuito esquemático [aqui](https://www.tinkercad.com/things/j4PE1sF7LRh/editel?sharecode=utP7nyLXpi9SmLYVqz3jS4-KDwEefB-_P71fWhiYxBE)
 
-![circuito-esquema.png]
+
+![arduinoesquematico.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/arduinoesquematico.jpg)
 
 
-![circuito-foto.png]
+![arduinofoto.jpg](https://github.com/juan-tomba/fonte-ajustavel-arduino/blob/main/arduinofoto.jpg)
 ## Software:
 ---
 ```c++
